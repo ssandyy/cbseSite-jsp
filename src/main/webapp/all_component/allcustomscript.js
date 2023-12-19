@@ -6,3 +6,7 @@ $("button").click(function() {
 $(".dropdown-multi-select .dropdown-multi-select-item").click(function() {
   $(this).toggleClass("active");
 });
+
+$(function() {
+        $('#datepicker').datepicker();
+    });

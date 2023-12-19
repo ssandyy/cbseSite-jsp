@@ -1,11 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page isELIgnored="false"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
 <title>CBSE Servlet Project</title>
 <%@ include file="all_component/all_link.jsp"%>
+
 </head>
 <body class="stdpagebody">
 	<%@ include file="all_component/navbar.jsp"%>
@@ -13,10 +17,19 @@
 		<div class="form_container">
 			<div class="title_container">
 				<h2>Student Registration Form</h2>
+				<!-- Used 'Jstl' for success msg same as ajax  -->
+				<c:if test="${not empty SucessMsg}">
+					<p class="text-center text-success">${SucessMsg}</p>
+					<c:remove var="SucessMsg" scope="session" />
+				</c:if>
+				<c:if test="${not empty FailedMsg}">
+					<p class="text-center text-success">${FailedMsg}</p>
+					<c:remove var="FailedMsg" scope="session" />
+				</c:if>
 			</div>
 			<div class="row clearfix">
 				<div class="">
-					<form action="studentreg" method="post">
+					<form action="studentreg2" method="post">
 						<div class="row clearfix">
 							<div class="col_half">
 								<div class="input_field">
@@ -34,13 +47,17 @@
 						</div>
 						<div class="row clearfix">
 							<div class=" col_OneThird">
-								<input type="text" name="age" placeholder="Age" required />
+								<input type="date" name="Dob" placeholder="Dob" required />
+
 							</div>
 							<div class="col_half">
-								<div class="input_field radio_option">
-									<input type="radio" name="gender" id="rd1">Gender: <label
-										for="rd1">Male</label> <input type="radio" name="radiogroup1"
-										id="rd2"> <label for="rd2">Female</label>
+								<div class="input_field">
+									<label for="gender">Gender:</label> <select name="gender"
+										id="gender">
+										<option value="male">Male</option>
+										<option value="female">Female</option>
+										<option value="other">Other</option>
+									</select>
 								</div>
 							</div>
 						</div>
@@ -50,8 +67,8 @@
 						</div>
 						<div class="input_field">
 							<span><i aria-hidden="true" class="fa fa-phone"></i></span> <input
-								type="tel" name="phone" placeholder="Phone"
-								pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required />
+								type="tel" name="phone" placeholder="Phone" pattern="[0-9]{10}"
+								required />
 						</div>
 						<div class="textarea_field">
 							<input type="text" name="address" placeholder="Address" required />
@@ -61,9 +78,9 @@
 
 
 						<div class="row clearfix">
-							<div class="col_OneThird">
+							<div class="col_half">
 								<div class="input_field select_option">
-									<select name="classId">
+									<select name="class">
 										<option value="" disabled selected>Class</option>
 										<option value="1">One</option>
 										<option value="2">Two</option>
@@ -81,7 +98,7 @@
 									<div class="select_arrow"></div>
 								</div>
 							</div>
-							<div class="col_OneThird">
+							<!-- <div class="col_OneThird">
 								<div class="input_field select_option">
 									<select name="section">
 										<option value="" disabled selected>Section</option>
@@ -95,9 +112,9 @@
 									</select>
 									<div class="select_arrow"></div>
 								</div>
-							</div>
-							<div class="col_OneThird">
-								<input type="text" name="roll" placeholder="Roll No." required />
+							</div> -->
+							<div class="col_half">
+								<input type="text" name="rollno" placeholder="Roll No." />
 							</div>
 						</div>
 
