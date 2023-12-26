@@ -10,54 +10,85 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import org.mindrot.jbcrypt.BCrypt;
 
-import com.DAO.StudnetDaoImp;
+//import org.mindrot.jbcrypt.BCrypt;
+
+import com.DAO.StudentDaoImp;
 import com.DB.DbConnect;
 import com.entities.Student;
 
-@WebServlet("/studentreg")
+
+@WebServlet("/studentregistration")
 public class RegisterServlet extends HttpServlet{
+
+	/**
+	 * 
+	 */
+	
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		try {
+			//serei
+			String StudentId = req.getParameter("studentId");
 			String fname = req.getParameter("fname");
 			String lname = req.getParameter("lname");
 			String password = req.getParameter("password");
-//			int age =Integer.parseInt(req.getParameter("age"));
-//			int ClassId = Integer.parseInt(req.getParameter("ClassId"));
+			String hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt());
+			
+//			int dob =Integer.parseInt(req.getParameter("Dob"));
+			String dob =req.getParameter("Dob");
+			String gender = req.getParameter("gender");
+//			int ClassId = Integer.parseInt(req.getParameter("class"));
 			String phone = req.getParameter("phone");
+			int ClassId = Integer.parseInt(req.getParameter("class"));
 			String address = req.getParameter("address");
 			String fatherName = req.getParameter("fathername");
-//			int rollno = Integer.parseInt(req.getParameter("rollno"));
+			String rollno = req.getParameter("rollno");
+			
+			
 			
 			 
-//			System.out.println(fname+" "+lname+" "+password+" "+phone+" "+address+" "+fatherName);
+//			System.out.println(fname+" "+lname+" "+password+" "+phone+" "+address+" "+fatherName+" "+rollno+ " "+age+ " "+ClassId);
 			
 			 Student std = new Student(); 
-			 std.setFname(fname); 
-			 std.setLname(lname);
+			 std.setFirstName(fname); 
+			 std.setLastName(lname);
 			 std.setAddress(address); 
-//			 std.setAge(age); 
-			 std.setFathername(fatherName);
-			 std.setPassword(password); 
-//			 std.setClassId(ClassId);; 
+			 std.setDob(dob); 
+			 std.setGender(gender);
+			 std.setFatherName(fatherName);
+				/* std.setPassword(hashedPassword); */
+			 std.setPassword(password);
+			 std.setClassId(ClassId);
 			 std.setPhone(phone);
-//			 std.setRollno(rollno);
-//			 
+			 std.setRollNo(rollno);
+			 
+			 //ser end
+			 
+			 HttpSession session = req.getSession();
+			 
 			
-			StudnetDaoImp dImp = new StudnetDaoImp(DbConnect.getConn());
+			 
+			 
+			StudentDaoImp dImp = new StudentDaoImp();
 			boolean f=dImp.studentRegister(std);
 			
+			
 			if(f) {
-				System.out.println("Student Registered Success..!");
+				//System.out.println("Student Registered Success..!");
+				session.setAttribute("SucessMsg", "Student registration sucessfully:"+fname+" "+lname);
+				resp.sendRedirect("studentreg.jsp");
 			}else {
-				System.out.println("something went wrong on server ..!");
+//				System.out.println("something went wrong on server ..!");
+				session.setAttribute("FailedMsg", "Something went wrong, please try again after sometime..!");
 			}
-//			
-//			
+			
+			
 
 			
 		} catch (Exception e) {

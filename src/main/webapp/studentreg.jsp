@@ -17,7 +17,7 @@
 		<div class="form_container">
 			<div class="title_container">
 				<h2>Student Registration Form</h2>
-				<!-- Used 'Jstl' for success msg same as ajax  -->
+				<!-- ssandyy Used 'Jstl' for success msg same as ajax  -->
 				<c:if test="${not empty SucessMsg}">
 					<p class="text-center text-success">${SucessMsg}</p>
 					<c:remove var="SucessMsg" scope="session" />
@@ -29,7 +29,7 @@
 			</div>
 			<div class="row clearfix">
 				<div class="">
-					<form action="studentreg2" method="post">
+					<form action="studentregistration" method="post">
 						<div class="row clearfix">
 							<div class="col_half">
 								<div class="input_field">
@@ -46,10 +46,12 @@
 							</div>
 						</div>
 						<div class="row clearfix">
-							<div class=" col_OneThird">
-								<input type="date" name="Dob" placeholder="Dob" required />
-
+							<div class="col_half">
+								<div class="input_field">
+									DOB: <input type="date" name="Dob" placeholder="Dob" required />
+								</div>
 							</div>
+							<!--  <div class="col_half"> -->
 							<div class="col_half">
 								<div class="input_field">
 									<label for="gender">Gender:</label> <select name="gender"
@@ -122,6 +124,7 @@
 							<span><i aria-hidden="true" class="fa fa-lock"></i></span> <input
 								type="password" name="password" placeholder="Password" required />
 						</div>
+
 						<!-- <div class="input_field"> <span><i aria-hidden="true" class="fa fa-lock"></i></span>
             <input type="password" name="password" placeholder="Re-type Password" required />
           </div> -->

@@ -1,89 +1,116 @@
 package com.entities;
-// StudentId	fname	lname	age	gender	fathername	phone	address	ClassId	rollno	password
+// StudentId	fname	lname	age	gender	fathername	phone	address	classId	rollno	password
 /**
  * 
  */
 public class Student {
 	private int StudentId;
-	private String fname;
-	private String lname;
-//	private int age;
-//	private enum gender{Male, Female, Transgender};
-	private String fathername;
-	private String phone;
-	private String address;
-//	private int ClassId;
-//	private int rollno;
-	private String password;
+	private String FirstName;
+	private String LastName;
+	private String Dob;
+	private String Gender;
+	private String FatherName;
+	private String Phone;
+	private String Address;
+	private int ClassId;
+	private String RollNo;
+	private String RegistrationNo;
+	
+	public String getRegistrationNo() {
+		return RegistrationNo;
+	}
+	public void setRegistrationNo(String registrationNo) {
+		RegistrationNo = registrationNo;
+	}
+	private String Password;
+	
 	
 	public int getStudentId() {
 		return StudentId;
 	}
+	public String getDob() {
+		return Dob;
+	}
+	public void setDob(String dob) {
+		Dob = dob;
+	}
 	public void setStudentId(int studentId) {
 		StudentId = studentId;
 	}
-	public String getFname() {
-		return fname;
+	public String getFirstName() {
+		return FirstName;
 	}
-	public void setFname(String fname) {
-		this.fname = fname;
+	public void setFirstName(String firstName) {
+		FirstName = firstName;
 	}
-	public String getLname() {
-		return lname;
+	public String getLastName() {
+		return LastName;
 	}
-	public void setLname(String lname) {
-		this.lname = lname;
+	
+	public void setLastName(String lastName) {
+		LastName = lastName;
 	}
-//	public int getAge() {
-//		return age;
-//	}
-//	public void setAge(int age) {
-//		this.age = age;
-//	}
-	public String getFathername() {
-		return fathername;
+	
+	public String getGender() {
+		return Gender;
 	}
-	public void setFathername(String fathername) {
-		this.fathername = fathername;
+	public void setGender(String gender) {
+		Gender = gender;
+	}
+	public String getFatherName() {
+		return FatherName;
+	}
+	public void setFatherName(String fatherName) {
+		FatherName = fatherName;
 	}
 	public String getPhone() {
-		return phone;
+		return Phone;
 	}
 	public void setPhone(String phone) {
-		this.phone = phone;
+		Phone = phone;
 	}
 	public String getAddress() {
-		return address;
+		return Address;
 	}
 	public void setAddress(String address) {
-		this.address = address;
+		Address = address;
 	}
-//	public int getClassId() {
-//		return ClassId;
-//	}
-//	public void setClassId(int classId) {
-//		ClassId = classId;
-//	}
-//	public int getRollno() {
-//		return rollno;
-//	}
+	public int getClassId() {
+		return ClassId;
+	}
+	public void setClassId(int classId) {
+		ClassId = classId;
+	}
+	public String getRollNo() {
+		return RollNo;
+	}
+	public void setRollNo(String rollno) {
+		RollNo = rollno;
+	}
+	public String getPassword() {
+		return Password;
+	}
+	public void setPassword(String password) {
+		Password = password;
+	}
 	public Student() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-//	public void setRollno(int rollno) {
-//		this.rollno = rollno;
-//	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
 	@Override
 	public String toString() {
-		return "Student [StudentId=" + StudentId + ", fname=" + fname + ", lname=" + lname + ", fathername=" + fathername + ", phone=" + phone + ", address=" + address + ", password=" + password + "]";
+		return "Student [StudentId=" + StudentId + ", FirstName=" + FirstName + ", LastName=" + LastName + ", Dob="
+				+ Dob + ", Gender=" + Gender + ", FatherName=" + FatherName + ", Phone=" + Phone + ", Address="
+				+ Address + ", ClassId=" + ClassId + ", RollNo=" + RollNo + ", RegistrationNo=" + RegistrationNo
+				+ ", Password=" + Password + "]";
 	}
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
