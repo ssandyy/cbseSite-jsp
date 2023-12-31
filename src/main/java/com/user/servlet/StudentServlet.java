@@ -15,8 +15,8 @@ public class StudentServlet extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// Get registration number from the request parameter
-        String regNo = req.getParameter("regNo");
-
+        String regNo = req.getParameter("registrationNo");
+        
         // Instantiate your StudentDaoImp
         StudentDaoImp dImp = new StudentDaoImp();
 

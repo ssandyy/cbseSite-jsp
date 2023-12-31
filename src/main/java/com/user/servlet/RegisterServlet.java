@@ -48,6 +48,7 @@ public class RegisterServlet extends HttpServlet{
 			int ClassId = Integer.parseInt(req.getParameter("class"));
 			String address = req.getParameter("address");
 			String fatherName = req.getParameter("fathername");
+			String registrationNo = req.getParameter("registrationNo");
 			String rollno = req.getParameter("rollno");
 			
 			
@@ -67,6 +68,7 @@ public class RegisterServlet extends HttpServlet{
 			 std.setClassId(ClassId);
 			 std.setPhone(phone);
 			 std.setRollNo(rollno);
+			 std.setRegistrationNo(registrationNo);
 			 
 			 //ser end
 			 

@@ -38,6 +38,7 @@ public class StudentDaoImp implements StudentDAO {
 			ps.setInt(8, std.getClassId());
 			ps.setString(9, std.getRollNo());
 			ps.setString(10, std.getPassword());
+//			ps.setString(11, std.getRegistrationNo());
 			
 			
 			

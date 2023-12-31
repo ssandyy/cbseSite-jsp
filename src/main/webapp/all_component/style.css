@@ -679,6 +679,34 @@ Animation Keyframes
 	}
 }
 
+datalist2 {
+		display: inline-block;
+		width: 100%;
+		height: 35px;
+		padding: 0px 15px;
+		cursor: pointer;
+		color: #7b7b7b;
+		border: 1px solid #cccccc;
+		border-radius: 0;
+		background: #fff;
+		appearance: none;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		transition: all 0.2s ease;
+
+		&::-ms-expand {
+			display: none;
+		}
+
+		&:hover,
+		&:focus {
+			color: #000000;
+			background: #fafafa;
+			border-color: #000000;
+			outline: none;
+		}
+	}
+
 .select_option {
 	position: relative;
 	width: 100%;

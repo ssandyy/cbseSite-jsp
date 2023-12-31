@@ -419,12 +419,12 @@ Animation Keyframes
 	width: 450px;
 	max-width: 100%;
 	box-sizing: border-box;
-	padding: 20px;
+	padding: 15px;
 	margin: 5% auto 0;
-	height: 580px;
-	overflow-y: auto;
+	height: 550px;
+	/*overflow-y: auto;*/
 	position: relative;
-	z-index: 1;
+	z-index: 0;
 	border-top: 5px solid #00fffd;
 	-webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
 	-moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
@@ -1196,6 +1196,7 @@ footer a:focus {
   height: 200px;
   border: 1px solid #f1f1f1;
   perspective: 1000px; /* Remove this if you don't want the 3D effect */
+  overflow: inherit;
 }
 
 /* This container is needed to position the front and back side */

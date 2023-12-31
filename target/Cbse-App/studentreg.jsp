@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page import="com.DAO.ClassesDaoImp"%>
+<%@ page import="com.entities.Classes"%>
+<%@page import="java.util.List"%>
 <%@ page isELIgnored="false"%>
 
 <!DOCTYPE html>
@@ -17,7 +20,7 @@
 		<div class="form_container">
 			<div class="title_container">
 				<h2>Student Registration Form</h2>
-				<!-- Used 'Jstl' for success msg same as ajax  -->
+				<!-- ssandyy Used 'Jstl' for success msg same as ajax  -->
 				<c:if test="${not empty SucessMsg}">
 					<p class="text-center text-success">${SucessMsg}</p>
 					<c:remove var="SucessMsg" scope="session" />
@@ -29,7 +32,7 @@
 			</div>
 			<div class="row clearfix">
 				<div class="">
-					<form action="studentreg2" method="post">
+					<form action="studentregistration" method="post">
 						<div class="row clearfix">
 							<div class="col_half">
 								<div class="input_field">
@@ -46,10 +49,12 @@
 							</div>
 						</div>
 						<div class="row clearfix">
-							<div class=" col_OneThird">
-								<input type="date" name="Dob" placeholder="Dob" required />
-
+							<div class="col_half">
+								<div class="input_field">
+									DOB: <input type="date" name="Dob" placeholder="Dob" required />
+								</div>
 							</div>
+							<!--  <div class="col_half"> -->
 							<div class="col_half">
 								<div class="input_field">
 									<label for="gender">Gender:</label> <select name="gender"
@@ -82,7 +87,20 @@
 								<div class="input_field select_option">
 									<select name="class">
 										<option value="" disabled selected>Class</option>
-										<option value="1">One</option>
+										<%
+											ClassesDaoImp cls = new ClassesDaoImp();
+										List<Classes> list = cls.getAllClasses();
+						
+											for (Classes c : list) {
+											%>
+											<option value="<%=c.getClassId()%>">
+												<%=c.getClassName()%>
+											</option>
+											<%
+											}
+											%>
+										
+										<!-- <option value="1">One</option>
 										<option value="2">Two</option>
 										<option value="3">Three</option>
 										<option value="4">Four</option>
@@ -93,7 +111,7 @@
 										<option value="9">Nine</option>
 										<option value="10">Ten</option>
 										<option value="11">Eleven</option>
-										<option value="12">Twelve</option>
+										<option value="12">Twelve</option> -->
 									</select>
 									<div class="select_arrow"></div>
 								</div>
@@ -122,6 +140,7 @@
 							<span><i aria-hidden="true" class="fa fa-lock"></i></span> <input
 								type="password" name="password" placeholder="Password" required />
 						</div>
+
 						<!-- <div class="input_field"> <span><i aria-hidden="true" class="fa fa-lock"></i></span>
             <input type="password" name="password" placeholder="Re-type Password" required />
           </div> -->

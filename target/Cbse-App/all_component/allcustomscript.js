@@ -10,3 +10,4 @@ $(".dropdown-multi-select .dropdown-multi-select-item").click(function() {
 $(function() {
         $('#datepicker').datepicker();
     });
+    

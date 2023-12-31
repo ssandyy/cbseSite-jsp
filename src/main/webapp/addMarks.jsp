@@ -18,54 +18,67 @@
 
 <body>
 	<%@ include file="all_component/navbar.jsp"%>
-	
-	<form>
+
+	<form action="addstudentmarks" method="post" onsubmit="showSuccessMessage()">
 		<div class="container py-5">
-			<h1 class="text-center">Add Student Marks</h1>
+			<h1 class="text-center" for="dataInput" >Add Student Marks</h1>
 			<br />
-			<div id="success" class="alert alert-success close"
-				style="display: none;"></div>
+			<!-- <div id="success" class="alert alert-success close"
+				style="display: none;"> -->
+			<c:if test="${not empty SucessMsg2}">
+				<p id="successMessage" class="text-center text-success">${SucessMsg2}</p>
+				<c:remove var="SucessMsg2" scope="session" />
+			</c:if>
+			<c:if test="${not empty FailedMsg2}">
+				<p id="successMessage" class="text-center text-danger">${FailedMsg2}</p>
+				<c:remove var="FailedMsg2" scope="session" />
+			</c:if>
+			<!--  </div> -->
 			<fieldset>
 				<div class="row py-5">
 					<div class="col">
-						<label for="searchDropdown">Select Student</label> <select
-							id="searchDropdown" required class="form-control" name="studentid">
-							<option value=""></option>
-
-							<%
-							StudentDaoImp dimp = new StudentDaoImp();
-							List<Student> list = dimp.getAllStudentsDetails();
-
-							for (Student d : list) {
-							%>
-							<option value="<%=d.getStudentId()%>">
-								<%=d.getFirstName() + "" + d.getLastName()%>
-							</option>
-							<%
-							}
-							%>
-
-						</select>
-					</div>
-
-					<div class="col">
-						<label>Select Student Class</label> 
-						<select id="searchDropdown2" required class="form-control" name="classid">
-							<option value=""></option>
+					<label>Select Student Class</label>
+						<input type="text" id="myInput" list="suggestions"
+							name="registrationNo" placeholder="Student registration No: ">
+						<datalist id="suggestions">
 							<%
 							StudentDaoImp dimp2 = new StudentDaoImp();
 							List<Student> list2 = dimp2.getAllStudentsDetails();
 
 							for (Student d : list2) {
 							%>
-							<option value="<%=d.getStudentId()%>">
-								<%=d.getClassId()%>
+							<option value="<%=d.getRegistrationNo()%>">
+								<%=d.getFirstName() + " " + d.getLastName()+ "(RegNo:- "+d.getRegistrationNo()+")"%>
 							</option>
 							<%
 							}
 							%>
-						</select>
+						</datalist>
+
 					</div>
+
+					 <%-- <div class="col">
+						<label>Select Student Class</label>
+						<!-- <input type="text"  id="registrationNo" class="form-control"
+							placeholder="Student registration No: " name="registrationNo" required> -->
+
+						<select id="myInput" list="suggestions" required class="form-control"
+							name="registrationNo">
+							<option value=""></option>
+							<%
+							StudentDaoImp dimp = new StudentDaoImp();
+							List<Student> list = dimp.getAllStudentsDetails();
+
+							for (Student d : list) {
+							%>
+							<option value="<%=d.getRegistrationNo()%>">
+								<%=d.getRegistrationNo()%>
+							</option>
+							<%
+							}
+							%>
+						</select> 
+					</div> --%>
 				</div>
 			</fieldset>
 			<table class="table table-bordered">
@@ -75,25 +88,29 @@
 							Student Marks</th>
 					</tr>
 					<tr name="subjectid">
-						<th value="hi">Hindi</th>
-						<th value="eng">English</th>
-						<th value="maths">Maths</th>
-						<th value="sc">Science</th>
-						<th value="sst">Social Science</th>
+						<th>Hindiz</th>
+						<th>English</th>
+						<th>Maths</th>
+						<th>Science</th>
+						<th>Social Science</th>
 				</thead>
 				<tbody>
-					<tr name="marks">
+					<tr>
 						<td><input type="number" id="hindi" class="form-control"
-							placeholder="hindi" min="0" max="100" required></td>
+							placeholder="hindi" name="hindi" min="0" max="100" required></td>
+
 						<td><input type="number" id="english" class="form-control"
-							placeholder="english" min="0" max="100" required></td>
+							placeholder="english" name="english" min="0" max="100" required></td>
+
 						<td><input type="number" id="maths" class="form-control"
-							placeholder="maths" min="0" max="100" required></td>
+							placeholder="maths" name="maths" min="0" max="100" required></td>
+
 						<td><input type="number" id="science" class="form-control"
-							placeholder="science" min="0" max="100" required></td>
+							placeholder="science" name="science" min="0" max="100" required></td>
+
 						<td><input type="number" id="socialscience"
-							class="form-control" placeholder="Social Science" min="0"
-							max="100" required></td>
+							class="form-control" name="socialscience"
+							placeholder="Social Science" min="0" max="100" required></td>
 					</tr>
 					<tr>
 						<td colspan="6">

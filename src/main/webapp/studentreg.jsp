@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page import="com.DAO.ClassesDaoImp"%>
+<%@ page import="com.entities.Classes"%>
+<%@page import="java.util.List"%>
 <%@ page isELIgnored="false"%>
 
 <!DOCTYPE html>
@@ -84,7 +87,20 @@
 								<div class="input_field select_option">
 									<select name="class">
 										<option value="" disabled selected>Class</option>
-										<option value="1">One</option>
+										<%
+											ClassesDaoImp cls = new ClassesDaoImp();
+										List<Classes> list = cls.getAllClasses();
+						
+											for (Classes c : list) {
+											%>
+											<option value="<%=c.getClassId()%>">
+												<%=c.getClassName()%>
+											</option>
+											<%
+											}
+											%>
+										
+										<!-- <option value="1">One</option>
 										<option value="2">Two</option>
 										<option value="3">Three</option>
 										<option value="4">Four</option>
@@ -95,7 +111,7 @@
 										<option value="9">Nine</option>
 										<option value="10">Ten</option>
 										<option value="11">Eleven</option>
-										<option value="12">Twelve</option>
+										<option value="12">Twelve</option> -->
 									</select>
 									<div class="select_arrow"></div>
 								</div>
