@@ -30,11 +30,11 @@
             
                </a>
                <a id="gvlist_lnkbtnOnline_0" title="A Comprehensive One Stop Portal for All Exam Activities" class="btn-grad" href="studentreg.jsp"><b> <!-- <br>विद्यार्थी<br> --><br>STUDENTS<br><br></b></a>
-               <a id="gvlist_lnkbtnOnline_0" title="Result"class="btn-grad" href="#" ><b><!-- <br>परिणाम एवं प्रमाणपत्र<br> --><br>RESULT & CERTIFICATE<br><br></b></a> 
+               <a id="gvlist_lnkbtnOnline_0" title="Result" class="btn-grad" href="allstudentresult.jsp" ><b><!-- <br>परिणाम एवं प्रमाणपत्र<br> --><br>RESULT & CERTIFICATE<br><br></b></a> 
             </div>
             <div class="mainWebTab">
                   <a id="gvlist_lnkbtnOnline_0" title="A Comprehensive One Stop Portal for All Affiliation Activities" class="btn-grad" href="addMarks.jsp"><b> <!-- <br>अंक जोड़ें<br> --><br>ADD MARKS<br><br> </b></a>
-                  <a id="gvlist_lnkbtnOnline_0" title="Academic Website" class="btn-grad"  href="#" ><b><!-- <br>प्रतिशत एवं कोटियन<br> --><br>PERCENTAGE & GRADE<br><br></b></a>
+                  <a id="gvlist_lnkbtnOnline_0" title="Academic Website" class="btn-grad"  href="SearchResult.jsp" ><b><!-- <br>प्रतिशत एवं कोटियन<br> --><br>PERCENTAGE & GRADE<br><br></b></a>
                <a id="gvlist_lnkbtnOnline_0" title="A Comprehensive One Stop Portal for Training Activities" class="btn-grad"  href="#"><b><!-- <br>सूचना एवं अद्यतन<br --><br>NOTICE & UPDATE<br><br></b></a>  
              </div>
          </div>

@@ -124,57 +124,6 @@
 				</tbody>
 			</table>
 		</div>
-		<!-- <div class="py-5"></div>
-			<table class="table table-bordered">
-				<tr>
-					<td><strong>Name:</strong></td>
-					<td id="txtname"></td>
-				</tr>
-				<tr>
-					<td><strong>Class:</strong></td>
-					<td id="txtclass"></td>
-				</tr>
-			</table>
-			<div class="text-success py-3">
-				<hr>
-			</div>
-			<table class="table table-bordered">
-				<th>Subject</th>
-				<th>Marks</th>
-				<tr>
-					<td>English</td>
-					<td id="txtEnglish"></td>
-				</tr>
-				<tr>
-					<td>Tamil</td>
-					<td id="txttamil"></td>
-				</tr>
-				<tr>
-					<td>Hindi</td>
-					<td id="txthindi"></td>
-				</tr>
-				<tr>
-					<td>Computer</td>
-					<td id="txtcomputer"></td>
-				</tr>
-				<tr>
-					<td>History</td>
-					<td id="txthistory"></td>
-				</tr>
-				<tr>
-					<td>Science</td>
-					<td id="txtscience"></td>
-				</tr>
-				<tr>
-					<td class="text-center"><b>Total</b></td>
-					<td id="txttotal"></td>
-				</tr>
-				<tr>
-					<td class="text-center"><b>Results</b></td>
-					<td id="txtresult"></td>
-				</tr>
-			</table>
-		</div> -->
 	</form>
 	<%@ include file="all_component/footer.jsp"%>
 </body>

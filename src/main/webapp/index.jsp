@@ -71,13 +71,7 @@
 			</div>
 		</div>
 	</div>
-	<!--  <ul>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-            </ul> -->
+	
 	<!-- partial -->
 	<%@ include file="all_component/footer.jsp"%>
 </body>

@@ -23,6 +23,8 @@ public class ResultServlet extends HttpServlet {
         int Maths = Integer.parseInt(req.getParameter("maths"));
         int Science = Integer.parseInt(req.getParameter("science"));
         int SocialScience = Integer.parseInt(req.getParameter("socialscience"));
+        
+        String RegNo = req.getParameter("regno");
 
       System.out.println();
         Results results = new Results();
@@ -32,7 +34,8 @@ public class ResultServlet extends HttpServlet {
         results.setMaths(Maths);
         results.setScience(Science);
         results.setSocialScience(SocialScience);
-
+        
+        
         HttpSession session = req.getSession();
         ResultsDaoImp rdi = new ResultsDaoImp();
         boolean f=rdi.AddResultMarks(results);
